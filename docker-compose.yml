@@ -3,6 +3,7 @@ version: '3.6'
 services:
   sinatra:
     container_name: sinatra
-    command: ["sh"]
     image: sinatra
+    ports:
+      - "4567"
     build: .
