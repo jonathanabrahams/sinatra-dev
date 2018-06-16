@@ -3,7 +3,16 @@ version: '3.6'
 services:
   sinatra:
     container_name: sinatra
+    command: "ruby myapp.rb -o 0.0.0.0"
     image: sinatra
     ports:
-      - "4567"
+      - "4567:4567"
+    build: .
+
+  sinatra-rackup:
+    container_name: sinatra-rackup
+    command: "bundle exec rackup --host 0.0.0.0"
+    image: sinatra
+    ports:
+      - "9292:9292"
     build: .
